@@ -7,9 +7,28 @@ const useWordle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const formatGuess = () => {}
+  const formatGuess = () => {
+    console.log(currentGuess);
+  }
 
   const handleKeyup = ({ key }) => {
+    if (key === 'Enter') {
+      if (turn > 5) {
+        console.log('you have used all your guesses.');
+        return;
+      }
+      if (history.includes(currentGuess)) {
+        console.log('you have already tried this word.');
+        return;
+      }
+      if (currentGuess.length !== 5) {
+        console.log('must be 5 chars long.');
+        return;
+      }
+
+      formatGuess();
+    }
+
     if (key === 'Backspace') {
       setCurrentGuess((prev) => {
         return prev.slice(0, -1);
