@@ -4,11 +4,30 @@ const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
   const [guesses, setGuesses] = useState([]);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(['hello', 'ninja']);
   const [isCorrect, setIsCorrect] = useState(false);
 
   const formatGuess = () => {
-    console.log(currentGuess);
+    let solutionArray = [...solution];
+    let formattedGuess = [...currentGuess].map((letter) => {
+      return { key: letter, color: 'grey' }
+    });
+
+    formattedGuess.forEach((letter, index) => {
+      if (solutionArray[index] === letter.key) {
+        formattedGuess[index].color = 'green';
+        solutionArray[index] = null;
+      }
+    })
+
+    formattedGuess.forEach((letter, index) => {
+      if (solutionArray.includes(letter.key) && letter.color !== 'green') {
+        formattedGuess[index].color = 'yellow';
+        solutionArray[solutionArray.indexOf(letter.key)] = null;
+      }
+    })
+
+    return formattedGuess;
   }
 
   const handleKeyup = ({ key }) => {
@@ -26,7 +45,8 @@ const useWordle = (solution) => {
         return;
       }
 
-      formatGuess();
+      const formatted = formatGuess();
+      console.log(formatted);
     }
 
     if (key === 'Backspace') {
