@@ -16,3 +16,22 @@ h1 {
   font-size: 1.2em;
   border-bottom: 1px solid #eeeeee;
 }
+
+.row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.row > div {
+  display: block;
+  margin: 4px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #bbbbbb;
+  font-size: 2.5em;
+  text-align: center;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-weight: bold;
+}
