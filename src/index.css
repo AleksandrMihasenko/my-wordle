@@ -35,3 +35,18 @@ h1 {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.row > div.green {
+  background-color: #5ac85a;
+  border-color: #5ac85a;
+}
+
+.row > div.grey {
+  background-color: #a1a1a1;
+  border-color: #a1a1a1;
+}
+
+.row > div.yellow {
+  background-color: #e2cc68;
+  border-color: #e2cc68;
+}
