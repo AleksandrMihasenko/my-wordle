@@ -70,6 +70,10 @@ h1 {
   animation-delay: 0.8s;
 }
 
+.row.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
 /*animations*/
 @keyframes flip {
   0% {
@@ -96,5 +100,21 @@ h1 {
     background-color: var(--background-color);
     border-color: var(--border-color);
     color: #ffffff;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    border-color: #dddddd;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    border-color: #333333;
   }
 }
